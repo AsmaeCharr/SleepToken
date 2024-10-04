@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --SecondaryColor: #670101;
+    cursor: none;
+}
+
+::selection {
+    background-color: var(--SecondaryColor);
+    color: white;
+    text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.77);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #dddddd00;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: 1px solid rgb(80, 80, 80);
+    -webkit-box-shadow: 0px 0px 13px 0px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: 0px 0px 13px 0px rgba(110, 110, 110, 0.75);
+    box-shadow: 0px 0px 13px 0px rgba(110, 110, 110, 0.75);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    background-color: black;
+    overflow-x: hidden;
+}
+
+.cursor-dot,
+.cursor-dot-outline {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease-in-out,
+        transform 0.3s ease-in-out;
+    z-index: 10000;
+}
+
+.cursor-dot {
+    --size-cursor-dot: 8px;
+    width: var(--size-cursor-dot);
+    height: var(--size-cursor-dot);
+    background-color: var(--SecondaryColor);
+    -webkit-box-shadow: 0px 0px 13px 0px rgba(110, 110, 110, 0.75);
+    -moz-box-shadow: 0px 0px 13px 0px rgba(110, 110, 110, 0.75);
+    box-shadow: 0px 0px 13px 0px rgba(110, 110, 110, 0.75);
+}
+
+.cursor-dot-outline {
+    --size-cursor-dot-outline: 40px;
+    width: var(--size-cursor-dot-outline);
+    height: var(--size-cursor-dot-outline);
+    border: 2px solid var(--SecondaryColor);
+    background-color: #f5832000;
+    -webkit-box-shadow: 0px 0px 13px 0px rgba(110, 110, 110, 0.75);
+    -moz-box-shadow: 0px 0px 13px 0px rgba(110, 110, 110, 0.75);
+    box-shadow: 0px 0px 13px 0px rgba(110, 110, 110, 0.75);
+}
+
+#myVideo {
+    width: 100vw;
+    height: 90vh;
+    object-fit: cover;
+    position: fixed;
+    left: 30px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    filter: contrast(170%) brightness(30%);
+}
+
+header {
+    padding: 40px 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.Logo {
+    transform: translate(-10px, 0);
+    margin: 0 auto;
+    opacity: 0.5;
+    filter: blur(0.7px);
+}
+
+.Header__Title {
+    color: rgb(172, 172, 172);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    filter: blur(1px);
+    font-weight: 300;
+    text-shadow: 0px 0px 1px var(--SecondaryColor);
+}
+
+.Page__textVer {
+    margin: 0;
+    color: rgba(255, 255, 255, 0);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    position: absolute;
+    top: 350px;
+    z-index: 10;
+    right: -210px;
+    transform: rotate(90deg);
+    text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.77);
+}
+
+.Page__Text {
+    overflow-x: hidden;
+    align-items: flex-start;
+    justify-content: center;
+    display: flex;
+    z-index: 3;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.Page__Text p {
+    margin: 10% 0 0 60px;
+    color: rgba(255, 255, 255, 0);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    position: absolute;
+    z-index: 5;
+    text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.77);
+}
+
+.Page__Text h5 {
+    z-index: -1;
+    margin: 10% 0 0 50px;
+    color: rgba(255, 255, 255, 0);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-size: 8rem;
+    text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.77);
+}
+
+.Page__textVer span {
+    position: relative;
+    display: inline-block;
+}
+
+.Page__textVer span.active {
+    animation: smoke-letter 3s linear forwards;
+}
+
+.Page__textVer span.MouseOut {
+    animation: quit-smoke-letter 1s linear forwards;
+}
+
+
+.Header__Title span {
+    position: relative;
+    display: inline-block;
+}
+
+.Header__Title span.activeH {
+    animation: smoke-letterHeader 3s linear forwards;
+}
+
+.Header__Title span.MouseOutH {
+    animation: quit-smoke-letterHeader 1s linear forwards;
+}
+
+
+.content {
+    height: 99vh;
+    margin: 100px 0;
+    padding: 3% 0;
+    background-color: rgb(171, 171, 171);
+}
+
+.content h1 {
+    text-align: center;
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.77);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+        .Page__textVer {
+            animation: letters-awayD linear both;
+            animation-timeline: scroll();
+        }
+
+        .Page__Text {
+            animation: letters-awayL linear both;
+            animation-timeline: scroll();
+        }
+
+        #myVideo {
+            animation: blur-BG linear both;
+            animation-timeline: scroll();
+        }
+
+        header {
+            animation: header-awayD linear both;
+            animation-timeline: scroll();
+        }
+    }
+}
+
+@keyframes blur-BG {
+    to {
+        filter: blur(7px) contrast(170%) brightness(30%);
+    }
+}
+
+@keyframes smoke-letter {
+    to {
+        color: var(--SecondaryColor);
+        transform: scale(1.5) translate(calc(var(--i) * 10px), calc(var(--i) * 20px)) rotate(calc(var(--i) * 5deg));
+        filter: blur(10px);
+        opacity: 0;
+        /* 
+        transform: scale(1) translate(calc(var(--i) * 0px), calc(var(--i) * 0px)) rotate(calc(var(--i) * 0deg));
+        filter: blur(0px);
+        opacity: 1; */
+    }
+}
+
+@keyframes smoke-letterHeader {
+    to {
+        color: var(--SecondaryColor);
+        transform: scale(1.5) translate(calc(var(--j) * 10px), calc(var(--j) * 20px)) rotate(calc(var(--j) * 5deg));
+        filter: blur(10px);
+        opacity: 0;
+        /* 
+        transform: scale(1) translate(calc(var(--i) * 0px), calc(var(--i) * 0px)) rotate(calc(var(--i) * 0deg));
+        filter: blur(0px);
+        opacity: 1; */
+    }
+}
+
+@keyframes letters-awayL {
+    to {
+        color: var(--SecondaryColor);
+        transform: translate(-2000px, -200px) scale(2);
+        filter: blur(10px);
+        opacity: 0;
+    }
+}
+
+@keyframes letters-awayD {
+    to {
+        color: var(--SecondaryColor);
+        transform: translate(0, 500px) scale(2) rotate(90deg);
+        filter: blur(10px);
+        opacity: 0;
+    }
+}
+
+@keyframes header-awayD {
+    to {
+        transform: scale(1.7);
+        filter: blur(10px);
+        opacity: 0;
+        color: var(--SecondaryColor);
+    }
+}
+
+@keyframes quit-smoke-letter {
+    to {
+        /* transform: scale(1.5) translate(calc(var(--i) * 10px), calc(var(--i) * 20px)) rotate(calc(var(--i) * 5deg));
+        filter: blur(10px);
+        opacity: 0; */
+
+        transform: scale(1) translate(calc(var(--i) * 0px), calc(var(--i) * 0px)) rotate(calc(var(--i) * 0deg));
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes quit-smoke-letterHeader {
+    to {
+        /* transform: scale(1.5) translate(calc(var(--i) * 10px), calc(var(--i) * 20px)) rotate(calc(var(--i) * 5deg));
+        filter: blur(10px);
+        opacity: 0; */
+
+        transform: scale(1) translate(calc(var(--j) * 0px), calc(var(--j) * 0px)) rotate(calc(var(--j) * 0deg));
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
